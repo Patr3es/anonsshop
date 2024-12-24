@@ -267,6 +267,29 @@
             transform: translateY(0);
         }
     </style>
+    <script>
+        function toggleFAQ(faqItem) {
+            const answer = faqItem.querySelector('.faq-answer');
+            faqItem.classList.toggle('open');
+            answer.classList.toggle('open');
+        }
+
+        function navigateToHome() {
+            window.location.href = "index.html";
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUrl = window.location.pathname;
+            const shopLink = document.querySelector(".nav a[href='shop/index.html']");
+
+            if (currentUrl.includes("shop")) {
+                shopLink.classList.add("active");
+                shopLink.addEventListener("click", (event) => {
+                    event.preventDefault();
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="header-container">
